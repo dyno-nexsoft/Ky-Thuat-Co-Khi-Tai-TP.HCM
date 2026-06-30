@@ -235,6 +235,11 @@
                 <canvas id="mainChart"></canvas>
             </div>
 
+            <p class="text-center text-xs text-slate-500 mt-4 italic">
+                *Ghi chú: Biểu đồ thể hiện điểm chuẩn gốc. HCMUT sử dụng thang 100 (xét tuyển tổng hợp), TDTU sử dụng
+                thang 40 (môn chính nhân hệ số 2), các trường còn lại sử dụng thang 30.
+            </p>
+
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
                     <h5 class="font-bold text-blue-800 mb-2 flex items-center">
@@ -393,7 +398,8 @@
         <section id="predictor" class="mb-20">
             <div class="rounded-2xl overflow-hidden shadow-lg">
                 <!-- Header -->
-                <div class="bg-gradient-to-r from-blue-700 to-blue-500 px-4 sm:px-8 pt-8 sm:pt-10 pb-14 sm:pb-16 text-white text-center">
+                <div
+                    class="bg-gradient-to-r from-blue-700 to-blue-500 px-4 sm:px-8 pt-8 sm:pt-10 pb-14 sm:pb-16 text-white text-center">
                     <span
                         class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Công
                         cụ tư vấn</span>
@@ -408,7 +414,8 @@
 
                 <!-- Form card (floats over header) -->
                 <div class="bg-slate-50 px-3 sm:px-6 pb-8">
-                    <div class="max-w-2xl mx-auto -mt-8 bg-white rounded-2xl shadow-xl p-4 sm:p-6 border border-slate-100">
+                    <div
+                        class="max-w-2xl mx-auto -mt-8 bg-white rounded-2xl shadow-xl p-4 sm:p-6 border border-slate-100">
                         <!-- Score type tabs -->
                         <div class="flex flex-col sm:flex-row gap-1 mb-5 bg-slate-100 p-1 rounded-xl text-center">
                             <button id="tab-thpt" onclick="setScoreType('thpt')"
@@ -431,7 +438,8 @@
 
                         <div class="flex flex-col sm:flex-row gap-3">
                             <div class="relative flex-1">
-                                <input type="number" id="scoreInput" inputmode="decimal" placeholder="Nhập điểm của bạn..."
+                                <input type="number" id="scoreInput" inputmode="decimal"
+                                    placeholder="Nhập điểm của bạn..."
                                     class="w-full px-4 py-4 sm:py-3 rounded-xl border-2 border-slate-200 focus:border-blue-500 outline-none text-lg font-bold text-slate-700 transition"
                                     min="0" max="30" step="0.01" />
                                 <span id="scoreUnit"
@@ -531,83 +539,65 @@
         const schoolData = [
             {
                 name: "ĐH Bách Khoa (HCMUT)",
-                majors: "Cơ khí, Cơ điện tử (Tiêu chuẩn)",
-                score: 75.43,
+                majors: "Cơ khí, Cơ điện tử (PTXT Tổng hợp)",
                 tuition: 31,
                 highlight: "Chuẩn ASIIN, Đào tạo nghiên cứu mũi nhọn",
-                system: "100",
-                benchmarks: { thpt: 26.5, dgnl: 900, hocba: 8.7 },
+                benchmarks: { thpt: 75.43, thptScale: 100, dgnl: 900, hocba: 8.7 },
             },
             {
                 name: "ĐH Bách Khoa (HCMUT)",
                 majors: "Cơ khí (Hệ Tiếng Anh)",
-                score: 75.43,
                 tuition: 82,
                 highlight: "Dạy hoàn toàn bằng Tiếng Anh, Chuyển tiếp Úc",
-                system: "100",
-                benchmarks: { thpt: 27.2, dgnl: 950, hocba: 9.0 },
+                benchmarks: { thpt: 78.5, thptScale: 100, dgnl: 950, hocba: 9.0 },
             },
             {
                 name: "ĐH Sư phạm Kỹ thuật (HCMUTE)",
                 majors: "Công nghệ KT Cơ khí",
-                score: 26.45,
                 tuition: 32.6,
                 highlight: "Cơ sở vật chất xưởng thực hành lớn nhất",
-                system: "30",
                 benchmarks: { thpt: 26.0, dgnl: 770, hocba: 8.4 },
             },
             {
                 name: "ĐH Sư phạm Kỹ thuật (HCMUTE)",
                 majors: "Robot & Trí tuệ nhân tạo",
-                score: 27.7,
                 tuition: 33,
                 highlight: "Đón đầu xu hướng AI và Robot",
-                system: "30",
                 benchmarks: { thpt: 27.0, dgnl: 800, hocba: 8.6 },
             },
             {
                 name: "ĐH Công nghiệp (IUH)",
                 majors: "Công nghệ KT Cơ khí",
-                score: 25.5,
                 tuition: 33.5,
                 highlight: "6 chương trình đạt chuẩn ABET (Mỹ)",
-                system: "30",
                 benchmarks: { thpt: 24.5, dgnl: 700, hocba: 7.9 },
             },
             {
                 name: "ĐH Tôn Đức Thắng (TDTU)",
                 majors: "Kỹ thuật Cơ điện tử",
-                score: 33.5,
                 tuition: 37,
                 highlight: "Chuẩn AUN-QA, Cam kết việc làm",
-                system: "40",
-                benchmarks: { thpt: 22.5, dgnl: 660, hocba: 7.6 },
+                benchmarks: { thpt: 33.5, thptScale: 40, dgnl: 660, hocba: 7.6 },
             },
             {
                 name: "ĐH Giao thông Vận tải (UTH)",
                 majors: "Cơ khí tự động",
-                score: 24.0,
                 tuition: 38,
                 highlight: "Chuyên sâu cơ khí hàng hải, tàu thủy",
-                system: "30",
                 benchmarks: { thpt: 22.0, dgnl: 620, hocba: 7.3 },
             },
             {
                 name: "ĐH Nông Lâm (NLU)",
                 majors: "Cơ khí Nông - Lâm",
-                score: 22.0,
                 tuition: 18.7,
                 highlight: "Học phí thấp, ứng dụng công nghệ nông nghiệp",
-                system: "30",
                 benchmarks: { thpt: 20.5, dgnl: 560, hocba: 7.0 },
             },
             {
                 name: "ĐH Công nghệ (HUTECH)",
-                majors: "Kỹ thuật Cơ khí",
-                score: 15.0,
+                majors: "Kỹ thuật Cơ khí (Xét THPT)",
                 tuition: 52,
                 highlight: "Kết nối doanh nghiệp mạnh mẽ",
-                system: "30",
                 benchmarks: { thpt: 15.0, dgnl: 450, hocba: 6.2 },
             },
         ];
@@ -828,18 +818,19 @@
         function populateTable(data) {
             const tbody = document.getElementById("schoolTableBody");
             tbody.innerHTML = "";
-            data.forEach((item) => {
+            data.forEach((school) => {
+                const scale = school.benchmarks.thptScale || 30;
                 const row = `
                     <tr class="hover:bg-slate-50 transition">
-                        <td class="px-6 py-4 font-semibold text-slate-800" data-label="Tên trường">${item.name}</td>
-                        <td class="px-6 py-4" data-label="Chuyên ngành">${item.majors}</td>
+                        <td class="px-6 py-4 font-semibold text-slate-800" data-label="Tên trường">${school.name}</td>
+                        <td class="px-6 py-4" data-label="Chuyên ngành">${school.majors}</td>
                         <td class="px-6 py-4" data-label="Điểm THPT">
                             <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs font-bold">
-                                ${item.score} <small class="font-normal">(/${item.system})</small>
+                                ${school.benchmarks.thpt} <small class="font-normal">(/${scale})</small>
                             </span>
                         </td>
-                        <td class="px-6 py-4" data-label="Học phí/năm">~${item.tuition} tr</td>
-                        <td class="px-6 py-4 text-xs italic" data-label="Điểm nổi bật">${item.highlight}</td>
+                        <td class="px-6 py-4" data-label="Học phí/năm">~${school.tuition} tr</td>
+                        <td class="px-6 py-4 text-xs italic" data-label="Điểm nổi bật">${school.highlight}</td>
                     </tr>
                 `;
                 tbody.innerHTML += row;
