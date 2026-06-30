@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm nang Đại học Cơ khí TP.HCM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f2;
+            color: #2d3436;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 500px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-active {
+            border-bottom: 3px solid #0984e3;
+            color: #0984e3;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Hero Section -->
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-800 flex items-center">
+                <span class="mr-2">⚙️</span> MECH-HCM INSIGHTS
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#overview" class="hover:text-blue-600 transition">Tổng quan</a>
+                <a href="#data" class="hover:text-blue-600 transition">Dữ liệu so sánh</a>
+                <a href="#trends" class="hover:text-blue-600 transition">Xu hướng</a>
+                <a href="#finder" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Tìm trường</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-16 bg-gradient-to-b from-white to-stone-50">
+        <div class="container mx-auto px-4 text-center">
+            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Báo cáo phân tích 2024-2025</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mt-6 mb-4 text-slate-900 leading-tight">
+                Hệ Sinh Thái Đào Tạo <br><span class="text-blue-600">Kỹ Thuật Cơ Khí</span> Tại TP.HCM
+            </h2>
+            <p class="max-w-2xl mx-auto text-slate-600 text-lg">
+                Khám phá bản đồ giáo dục từ nghiên cứu chuyên sâu đến ứng dụng thực tiễn, giúp bạn định hướng tương lai trong kỷ nguyên công nghiệp 4.0.
+            </p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <main class="container mx-auto px-4 py-12">
+        <div id="overview" class="mb-20">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">Phân tầng hệ thống đào tạo</h3>
+                <p class="text-slate-600">Mỗi nhóm trường có một định hướng riêng biệt để đáp ứng nhu cầu đa dạng của thị trường lao động.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Group 1 -->
+                <div class="glass-card p-8 bg-white border-t-4 border-blue-500">
+                    <div class="text-3xl mb-4">🔬</div>
+                    <h4 class="text-xl font-bold mb-3">Nghiên cứu & Mũi nhọn</h4>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">Tập trung vào tư duy hệ thống phức tạp, R&D và các mô hình toán học vĩ mô.</p>
+                    <ul class="text-xs space-y-2 text-slate-500 mb-6">
+                        <li>• ĐH Bách khoa (HCMUT)</li>
+                        <li>• ĐH Sư phạm Kỹ thuật (HCMUTE)</li>
+                    </ul>
+                    <div class="text-blue-600 text-xs font-semibold">Ưu tiên: Thiết kế & Nghiên cứu →</div>
+                </div>
+
+                <!-- Group 2 -->
+                <div class="glass-card p-8 bg-white border-t-4 border-emerald-500">
+                    <div class="text-3xl mb-4">🏭</div>
+                    <h4 class="text-xl font-bold mb-3">Ứng dụng & Chuyên ngành</h4>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">Đào tạo kỹ sư có khả năng làm việc ngay tại dây chuyền sản xuất và các phân khúc đặc thù.</p>
+                    <ul class="text-xs space-y-2 text-slate-500 mb-6">
+                        <li>• ĐH Công nghiệp (IUH)</li>
+                        <li>• ĐH Giao thông Vận tải (UTH/UTC2)</li>
+                        <li>• ĐH Nông Lâm (NLU)</li>
+                    </ul>
+                    <div class="text-emerald-600 text-xs font-semibold">Ưu tiên: Vận hành & Quản lý →</div>
+                </div>
+
+                <!-- Group 3 -->
+                <div class="glass-card p-8 bg-white border-t-4 border-amber-500">
+                    <div class="text-3xl mb-4">💡</div>
+                    <h4 class="text-xl font-bold mb-3">Tư thục & Linh hoạt</h4>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">Nổi bật với sự linh hoạt, kết nối doanh nghiệp mạnh mẽ và cơ sở vật chất hiện đại.</p>
+                    <ul class="text-xs space-y-2 text-slate-500 mb-6">
+                        <li>• ĐH Tôn Đức Thắng (TDTU)</li>
+                        <li>• ĐH Công nghệ (HUTECH)</li>
+                        <li>• ĐH Văn Lang, Nguyễn Tất Thành</li>
+                    </ul>
+                    <div class="text-amber-600 text-xs font-semibold">Ưu tiên: Trải nghiệm & Kết nối →</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Visualization Section -->
+        <section id="data" class="mb-20 py-12 bg-white rounded-2xl shadow-sm border p-8">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-10">
+                <div class="max-w-xl">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Phân tích định lượng 2024</h3>
+                    <p class="text-slate-600">So sánh mức độ cạnh tranh (Điểm chuẩn) và chi phí đầu tư (Học phí) tại các cơ sở đào tạo hàng đầu.</p>
+                </div>
+                <div class="flex mt-4 md:mt-0 bg-slate-100 p-1 rounded-lg">
+                    <button onclick="updateChart('benchmark')" id="btn-bench" class="px-4 py-2 text-sm font-medium rounded-md transition bg-white shadow-sm text-blue-600">Điểm chuẩn</button>
+                    <button onclick="updateChart('tuition')" id="btn-tuition" class="px-4 py-2 text-sm font-medium rounded-md transition text-slate-600 hover:text-blue-600">Học phí (Triệu VNĐ)</button>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="mainChart"></canvas>
+            </div>
+            
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                    <h5 class="font-bold text-blue-800 mb-2 flex items-center">
+                        <span class="mr-2">📈</span> Nhận xét Điểm chuẩn
+                    </h5>
+                    <p class="text-sm text-blue-700 leading-relaxed">
+                        Sự phân cực rõ rệt: Nhóm công lập tự chủ (HCMUT, HCMUTE) duy trì mức điểm cao và tăng ổn định. Trong khi đó, các trường tư thục duy trì mức sàn dễ tiếp cận hơn để mở rộng cơ hội học tập.
+                    </p>
+                </div>
+                <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                    <h5 class="font-bold text-amber-800 mb-2 flex items-center">
+                        <span class="mr-2">💰</span> Nhận xét Học phí
+                    </h5>
+                    <p class="text-sm text-amber-700 leading-relaxed">
+                        Học phí có sự chênh lệch lớn giữa hệ Đại trà và Chất lượng cao (CLC). Chương trình dạy bằng tiếng Anh có mức phí cao gấp 2-3 lần nhưng đi kèm cam kết chuẩn đầu ra quốc tế.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trends & Insights Section -->
+        <section id="trends" class="mb-20">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Các yếu tố tạo nên giá trị gia tăng</h3>
+                <p class="text-slate-600 max-w-2xl mx-auto">Không chỉ là lý thuyết, giáo dục cơ khí tại TP.HCM đang chuyển dịch mạnh mẽ theo các tiêu chuẩn toàn cầu.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Accreditation -->
+                <div class="p-8 bg-slate-900 text-white rounded-2xl">
+                    <h4 class="text-xl font-bold mb-6 flex items-center">
+                        <span class="text-blue-400 mr-2">✦</span> Kiểm định quốc tế & Cơ sở vật chất
+                    </h4>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">🇩🇪</div>
+                            <div>
+                                <p class="font-semibold">Chuẩn ASIIN & AUN-QA</p>
+                                <p class="text-sm text-slate-400">HCMUT dẫn đầu với các chứng nhận chất lượng Châu Âu và Đông Nam Á.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">🇺🇸</div>
+                            <div>
+                                <p class="font-semibold">Chuẩn ABET (Hoa Kỳ)</p>
+                                <p class="text-sm text-slate-400">IUH khẳng định thương hiệu với 6 chương trình đạt chuẩn ABET danh giá.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-lg mr-4">💻</div>
+                            <div>
+                                <p class="font-semibold">Hệ sinh thái Công nghệ</p>
+                                <p class="text-sm text-slate-400">Phần mềm Moldex3D, máy in 3D, CNC hiện đại được tích hợp sâu vào chương trình.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Global Trends -->
+                <div class="p-8 bg-white border rounded-2xl">
+                    <h4 class="text-xl font-bold mb-6 text-slate-800 flex items-center">
+                        <span class="text-emerald-500 mr-2">🌍</span> Hướng nghiệp & Toàn cầu hóa
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-emerald-50 rounded-xl">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-emerald-800">Thị trường Nhật Bản</span>
+                                <span class="text-xs bg-emerald-200 text-emerald-800 px-2 py-1 rounded">HOT</span>
+                            </div>
+                            <p class="text-xs text-emerald-700">Chương trình liên kết đào tạo tiếng Nhật N3 song song chuyên môn tại HCMUT, HCMUTE, IUH.</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-xl">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-blue-800">Kỹ sư chất lượng cao (PFIEV)</span>
+                                <span class="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded">ELITE</span>
+                            </div>
+                            <p class="text-xs text-blue-700">Bằng kỹ sư được công nhận tương đương Thạc sĩ tại Châu Âu (Hợp tác Việt - Pháp).</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-slate-800">Tỷ lệ có việc làm</span>
+                                <span class="text-xs font-bold text-slate-500">99.5%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-full" style="width: 99.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- School Finder Table -->
+        <section id="finder" class="mb-20">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Danh sách tra cứu nhanh</h3>
+                    <p class="text-slate-600 text-sm">Tìm kiếm và so sánh chi tiết các thông số tuyển sinh.</p>
+                </div>
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Tìm tên trường..." class="w-full pl-10 pr-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none transition">
+                    <span class="absolute left-3 top-2.5">🔍</span>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto glass-card border">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 border-b uppercase text-xs font-bold text-slate-500">
+                        <tr>
+                            <th class="px-6 py-4">Tên trường</th>
+                            <th class="px-6 py-4">Chuyên ngành tiêu biểu</th>
+                            <th class="px-6 py-4">Điểm THPT (2025)</th>
+                            <th class="px-6 py-4">Học phí (Năm)</th>
+                            <th class="px-6 py-4">Đặc điểm nổi bật</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schoolTableBody" class="divide-y text-slate-600">
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h5 class="font-bold mb-4">Về dự án</h5>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Ứng dụng cung cấp cái nhìn tổng quan và dữ liệu chi tiết về hệ thống đào tạo kỹ sư cơ khí tại TP.HCM dựa trên các báo cáo giáo dục mới nhất.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Liên kết hữu ích</h5>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>• Cổng tuyển sinh ĐHQG</li>
+                        <li>• Bộ Giáo dục & Đào tạo</li>
+                        <li>• Hiệp hội Cơ khí Việt Nam</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Từ khóa xu hướng</h5>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-800 px-3 py-1 rounded text-xs">Cơ điện tử</span>
+                        <span class="bg-slate-800 px-3 py-1 rounded text-xs">AI & Robot</span>
+                        <span class="bg-slate-800 px-3 py-1 rounded text-xs">Bán dẫn</span>
+                        <span class="bg-slate-800 px-3 py-1 rounded text-xs">Tiêu chuẩn ABET</span>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-xs">
+                &copy; 2024 Phân tích dữ liệu giáo dục Kỹ thuật phía Nam.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const schoolData = [
+            { name: "ĐH Bách Khoa (HCMUT)", majors: "Cơ khí, Cơ điện tử (Tiêu chuẩn)", score: 75.43, tuition: 31, highlight: "Chuẩn ASIIN, Đào tạo nghiên cứu mũi nhọn", system: "100" },
+            { name: "ĐH Bách Khoa (HCMUT)", majors: "Cơ khí (Hệ Tiếng Anh)", score: 75.43, tuition: 82, highlight: "Dạy hoàn toàn bằng Tiếng Anh, Chuyển tiếp Úc", system: "100" },
+            { name: "ĐH Sư phạm Kỹ thuật (HCMUTE)", majors: "Công nghệ KT Cơ khí", score: 26.45, tuition: 32.6, highlight: "Cơ sở vật chất xưởng thực hành lớn nhất", system: "30" },
+            { name: "ĐH Sư phạm Kỹ thuật (HCMUTE)", majors: "Robot & Trí tuệ nhân tạo", score: 27.70, tuition: 33, highlight: "Đón đầu xu hướng AI và Robot", system: "30" },
+            { name: "ĐH Công nghiệp (IUH)", majors: "Công nghệ KT Cơ khí", score: 25.50, tuition: 33.5, highlight: "6 chương trình đạt chuẩn ABET (Mỹ)", system: "30" },
+            { name: "ĐH Tôn Đức Thắng (TDTU)", majors: "Kỹ thuật Cơ điện tử", score: 33.50, tuition: 37, highlight: "Chuẩn AUN-QA, Cam kết việc làm", system: "40" },
+            { name: "ĐH Giao thông Vận tải (UTH)", majors: "Cơ khí tự động", score: 24.00, tuition: 38, highlight: "Chuyên sâu cơ khí hàng hải, tàu thủy", system: "30" },
+            { name: "ĐH Nông Lâm (NLU)", majors: "Cơ khí Nông - Lâm", score: 22.00, tuition: 18.7, highlight: "Học phí thấp, ứng dụng công nghệ nông nghiệp", system: "30" },
+            { name: "ĐH Công nghệ (HUTECH)", majors: "Kỹ thuật Cơ khí", score: 15.00, tuition: 52, highlight: "Kết nối doanh nghiệp mạnh mẽ", system: "30" }
+        ];
+
+        // Chart Implementation
+        let mainChart;
+        const ctx = document.getElementById('mainChart').getContext('2d');
+
+        const chartLabels = ["HCMUT (BC)", "HCMUTE", "IUH", "TDTU", "UTH", "NLU", "HUTECH"];
+        const benchmarkData = [75.43, 26.45, 25.50, 33.50, 24.00, 22.00, 15.00]; // Mixed scales simplified for view
+        const tuitionData = [31, 32.6, 33.5, 37, 38, 18.7, 52];
+
+        function initChart() {
+            mainChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Điểm chuẩn THPT 2025 (Tham khảo)',
+                        data: benchmarkData,
+                        backgroundColor: 'rgba(9, 132, 227, 0.7)',
+                        borderColor: '#0984e3',
+                        borderWidth: 1,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label.includes('Học phí')) return label + ': ' + context.raw + ' triệu VNĐ/năm';
+                                    return label + ': ' + context.raw;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: '#f1f1f1' }
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function updateChart(type) {
+            const btnBench = document.getElementById('btn-bench');
+            const btnTuition = document.getElementById('btn-tuition');
+
+            if (type === 'benchmark') {
+                mainChart.data.datasets[0].label = 'Điểm chuẩn THPT 2025 (Tham khảo)';
+                mainChart.data.datasets[0].data = benchmarkData;
+                mainChart.data.datasets[0].backgroundColor = 'rgba(9, 132, 227, 0.7)';
+                mainChart.data.datasets[0].borderColor = '#0984e3';
+                
+                btnBench.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
+                btnTuition.classList.remove('bg-white', 'shadow-sm', 'text-blue-600');
+            } else {
+                mainChart.data.datasets[0].label = 'Học phí tham chiếu (Triệu VNĐ/Năm)';
+                mainChart.data.datasets[0].data = tuitionData;
+                mainChart.data.datasets[0].backgroundColor = 'rgba(255, 159, 64, 0.7)';
+                mainChart.data.datasets[0].borderColor = '#e67e22';
+
+                btnTuition.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
+                btnBench.classList.remove('bg-white', 'shadow-sm', 'text-blue-600');
+            }
+            mainChart.update();
+        }
+
+        // Table Implementation
+        function populateTable(data) {
+            const tbody = document.getElementById('schoolTableBody');
+            tbody.innerHTML = '';
+            data.forEach(item => {
+                const row = `
+                    <tr class="hover:bg-slate-50 transition">
+                        <td class="px-6 py-4 font-semibold text-slate-800">${item.name}</td>
+                        <td class="px-6 py-4">${item.majors}</td>
+                        <td class="px-6 py-4">
+                            <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs font-bold">
+                                ${item.score} <small class="font-normal">(/${item.system})</small>
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">~${item.tuition} tr</td>
+                        <td class="px-6 py-4 text-xs italic">${item.highlight}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Search Logic
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const filtered = schoolData.filter(s => 
+                s.name.toLowerCase().includes(term) || 
+                s.majors.toLowerCase().includes(term)
+            );
+            populateTable(filtered);
+        });
+
+        // Initialize
+        window.onload = () => {
+            initChart();
+            populateTable(schoolData);
+        };
+    </script>
+</body>
+</html>
