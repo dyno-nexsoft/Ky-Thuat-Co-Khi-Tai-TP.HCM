@@ -353,11 +353,47 @@
             </div>
         </section>
 
+        <!-- School Finder Table -->
+        <section id="finder" class="mb-20">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">
+                        Danh sách tra cứu nhanh
+                    </h3>
+                    <p class="text-slate-600 text-sm">
+                        Tìm kiếm và so sánh chi tiết các thông số tuyển sinh.
+                    </p>
+                </div>
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Tìm tên trường..."
+                        class="w-full pl-10 pr-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none transition" />
+                    <span class="absolute left-3 top-2.5">🔍</span>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto glass-card border">
+                <table class="w-full text-left text-sm responsive-table">
+                    <thead class="bg-slate-50 border-b uppercase text-xs font-bold text-slate-500">
+                        <tr>
+                            <th class="px-6 py-4">Tên trường</th>
+                            <th class="px-6 py-4">Chuyên ngành tiêu biểu</th>
+                            <th class="px-6 py-4">Điểm THPT (2025)</th>
+                            <th class="px-6 py-4">Học phí (Năm)</th>
+                            <th class="px-6 py-4">Đặc điểm nổi bật</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schoolTableBody" class="divide-y text-slate-600">
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
         <!-- Score Predictor Section -->
         <section id="predictor" class="mb-20">
             <div class="rounded-2xl overflow-hidden shadow-lg">
                 <!-- Header -->
-                <div class="bg-gradient-to-r from-blue-700 to-blue-500 px-8 pt-10 pb-16 text-white text-center">
+                <div class="bg-gradient-to-r from-blue-700 to-blue-500 px-4 sm:px-8 pt-8 sm:pt-10 pb-14 sm:pb-16 text-white text-center">
                     <span
                         class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Công
                         cụ tư vấn</span>
@@ -371,20 +407,20 @@
                 </div>
 
                 <!-- Form card (floats over header) -->
-                <div class="bg-slate-50 px-6 pb-8">
-                    <div class="max-w-2xl mx-auto -mt-8 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
+                <div class="bg-slate-50 px-3 sm:px-6 pb-8">
+                    <div class="max-w-2xl mx-auto -mt-8 bg-white rounded-2xl shadow-xl p-4 sm:p-6 border border-slate-100">
                         <!-- Score type tabs -->
-                        <div class="flex gap-1 mb-5 bg-slate-100 p-1 rounded-xl text-center">
+                        <div class="flex flex-col sm:flex-row gap-1 mb-5 bg-slate-100 p-1 rounded-xl text-center">
                             <button id="tab-thpt" onclick="setScoreType('thpt')"
-                                class="score-tab flex-1 py-2.5 text-sm font-semibold rounded-lg bg-white shadow text-blue-600 transition">
+                                class="score-tab flex-1 py-3 sm:py-2.5 text-sm font-semibold rounded-lg bg-white shadow text-blue-600 transition">
                                 📋 Điểm THPT
                             </button>
                             <button id="tab-dgnl" onclick="setScoreType('dgnl')"
-                                class="score-tab flex-1 py-2.5 text-sm font-semibold rounded-lg text-slate-500 transition hover:text-blue-600">
+                                class="score-tab flex-1 py-3 sm:py-2.5 text-sm font-semibold rounded-lg text-slate-500 transition hover:text-blue-600">
                                 🧠 Điểm ĐGNL
                             </button>
                             <button id="tab-hocba" onclick="setScoreType('hocba')"
-                                class="score-tab flex-1 py-2.5 text-sm font-semibold rounded-lg text-slate-500 transition hover:text-blue-600">
+                                class="score-tab flex-1 py-3 sm:py-2.5 text-sm font-semibold rounded-lg text-slate-500 transition hover:text-blue-600">
                                 📚 Điểm học bạ
                             </button>
                         </div>
@@ -393,17 +429,17 @@
                             Tổng điểm 3 môn thi THPT Quốc gia, thang điểm 0 – 30.
                         </p>
 
-                        <div class="flex gap-3">
+                        <div class="flex flex-col sm:flex-row gap-3">
                             <div class="relative flex-1">
-                                <input type="number" id="scoreInput" placeholder="Nhập điểm của bạn..."
-                                    class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-blue-500 outline-none text-lg font-bold text-slate-700 transition"
+                                <input type="number" id="scoreInput" inputmode="decimal" placeholder="Nhập điểm của bạn..."
+                                    class="w-full px-4 py-4 sm:py-3 rounded-xl border-2 border-slate-200 focus:border-blue-500 outline-none text-lg font-bold text-slate-700 transition"
                                     min="0" max="30" step="0.01" />
                                 <span id="scoreUnit"
-                                    class="absolute right-4 top-3.5 text-slate-400 text-sm font-medium pointer-events-none">/
+                                    class="absolute right-4 top-4 sm:top-3.5 text-slate-400 text-sm font-medium pointer-events-none">/
                                     30</span>
                             </div>
                             <button onclick="predictSchools()"
-                                class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white px-7 py-3 rounded-xl font-bold text-sm transition-all shadow-md shadow-blue-200">
+                                class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white px-7 py-4 sm:py-3 rounded-xl font-bold text-sm transition-all shadow-md shadow-blue-200">
                                 Tra cứu →
                             </button>
                         </div>
@@ -452,42 +488,6 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- School Finder Table -->
-        <section id="finder" class="mb-20">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">
-                        Danh sách tra cứu nhanh
-                    </h3>
-                    <p class="text-slate-600 text-sm">
-                        Tìm kiếm và so sánh chi tiết các thông số tuyển sinh.
-                    </p>
-                </div>
-                <div class="relative w-full md:w-64">
-                    <input type="text" id="searchInput" placeholder="Tìm tên trường..."
-                        class="w-full pl-10 pr-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none transition" />
-                    <span class="absolute left-3 top-2.5">🔍</span>
-                </div>
-            </div>
-
-            <div class="overflow-x-auto glass-card border">
-                <table class="w-full text-left text-sm responsive-table">
-                    <thead class="bg-slate-50 border-b uppercase text-xs font-bold text-slate-500">
-                        <tr>
-                            <th class="px-6 py-4">Tên trường</th>
-                            <th class="px-6 py-4">Chuyên ngành tiêu biểu</th>
-                            <th class="px-6 py-4">Điểm THPT (2025)</th>
-                            <th class="px-6 py-4">Học phí (Năm)</th>
-                            <th class="px-6 py-4">Đặc điểm nổi bật</th>
-                        </tr>
-                    </thead>
-                    <tbody id="schoolTableBody" class="divide-y text-slate-600">
-                        <!-- Data will be injected here -->
-                    </tbody>
-                </table>
             </div>
         </section>
     </main>
