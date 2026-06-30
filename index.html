@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cẩm nang Đại học Cơ khí TP.HCM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Inter", sans-serif;
             background-color: #f8f7f2;
             color: #2d3436;
         }
@@ -30,7 +31,9 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .glass-card:hover {
@@ -46,9 +49,11 @@
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 10px;
@@ -59,15 +64,17 @@
             .responsive-table thead {
                 display: none;
             }
+
             .responsive-table tbody tr {
                 display: block;
                 margin-bottom: 1rem;
                 border-radius: 0.75rem;
                 border: 1px solid #e2e8f0;
                 background: #fff;
-                box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
                 overflow: hidden;
             }
+
             .responsive-table tbody td {
                 display: flex;
                 align-items: flex-start;
@@ -77,9 +84,11 @@
                 font-size: 0.8rem;
                 line-height: 1.4;
             }
+
             .responsive-table tbody td:last-child {
                 border-bottom: none;
             }
+
             .responsive-table tbody td::before {
                 content: attr(data-label);
                 flex-shrink: 0;
@@ -94,8 +103,8 @@
         }
     </style>
 </head>
-<body class="antialiased">
 
+<body class="antialiased">
     <!-- Header & Hero Section -->
     <header class="bg-white border-b sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -106,19 +115,25 @@
                 <a href="#overview" class="hover:text-blue-600 transition">Tổng quan</a>
                 <a href="#data" class="hover:text-blue-600 transition">Dữ liệu so sánh</a>
                 <a href="#trends" class="hover:text-blue-600 transition">Xu hướng</a>
-                <a href="#finder" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Tìm trường</a>
+                <a href="#predictor" class="hover:text-blue-600 transition">Dự đoán</a>
+                <a href="#finder" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Tìm
+                    trường</a>
             </nav>
         </div>
     </header>
 
     <section class="py-16 bg-gradient-to-b from-white to-stone-50">
         <div class="container mx-auto px-4 text-center">
-            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Báo cáo phân tích 2024-2025</span>
+            <span
+                class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Báo
+                cáo phân tích 2024-2025</span>
             <h2 class="text-4xl md:text-5xl font-extrabold mt-6 mb-4 text-slate-900 leading-tight">
-                Hệ Sinh Thái Đào Tạo <br><span class="text-blue-600">Kỹ Thuật Cơ Khí</span> Tại TP.HCM
+                Hệ Sinh Thái Đào Tạo <br /><span class="text-blue-600">Kỹ Thuật Cơ Khí</span>
+                Tại TP.HCM
             </h2>
             <p class="max-w-2xl mx-auto text-slate-600 text-lg">
-                Khám phá bản đồ giáo dục từ nghiên cứu chuyên sâu đến ứng dụng thực tiễn, giúp bạn định hướng tương lai trong kỷ nguyên công nghiệp 4.0.
+                Khám phá bản đồ giáo dục từ nghiên cứu chuyên sâu đến ứng dụng thực
+                tiễn, giúp bạn định hướng tương lai trong kỷ nguyên công nghiệp 4.0.
             </p>
         </div>
     </section>
@@ -127,47 +142,67 @@
     <main class="container mx-auto px-4 py-12">
         <div id="overview" class="mb-20">
             <div class="mb-8">
-                <h3 class="text-2xl font-bold text-slate-800 mb-2">Phân tầng hệ thống đào tạo</h3>
-                <p class="text-slate-600">Mỗi nhóm trường có một định hướng riêng biệt để đáp ứng nhu cầu đa dạng của thị trường lao động.</p>
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">
+                    Phân tầng hệ thống đào tạo
+                </h3>
+                <p class="text-slate-600">
+                    Mỗi nhóm trường có một định hướng riêng biệt để đáp ứng nhu cầu đa
+                    dạng của thị trường lao động.
+                </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Group 1 -->
                 <div class="glass-card p-8 bg-white border-t-4 border-blue-500">
                     <div class="text-3xl mb-4">🔬</div>
                     <h4 class="text-xl font-bold mb-3">Nghiên cứu & Mũi nhọn</h4>
-                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">Tập trung vào tư duy hệ thống phức tạp, R&D và các mô hình toán học vĩ mô.</p>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Tập trung vào tư duy hệ thống phức tạp, R&D và các mô hình toán
+                        học vĩ mô.
+                    </p>
                     <ul class="text-xs space-y-2 text-slate-500 mb-6">
                         <li>• ĐH Bách khoa (HCMUT)</li>
                         <li>• ĐH Sư phạm Kỹ thuật (HCMUTE)</li>
                     </ul>
-                    <div class="text-blue-600 text-xs font-semibold">Ưu tiên: Thiết kế & Nghiên cứu →</div>
+                    <div class="text-blue-600 text-xs font-semibold">
+                        Ưu tiên: Thiết kế & Nghiên cứu →
+                    </div>
                 </div>
 
                 <!-- Group 2 -->
                 <div class="glass-card p-8 bg-white border-t-4 border-emerald-500">
                     <div class="text-3xl mb-4">🏭</div>
                     <h4 class="text-xl font-bold mb-3">Ứng dụng & Chuyên ngành</h4>
-                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">Đào tạo kỹ sư có khả năng làm việc ngay tại dây chuyền sản xuất và các phân khúc đặc thù.</p>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Đào tạo kỹ sư có khả năng làm việc ngay tại dây chuyền sản xuất và
+                        các phân khúc đặc thù.
+                    </p>
                     <ul class="text-xs space-y-2 text-slate-500 mb-6">
                         <li>• ĐH Công nghiệp (IUH)</li>
                         <li>• ĐH Giao thông Vận tải (UTH/UTC2)</li>
                         <li>• ĐH Nông Lâm (NLU)</li>
                     </ul>
-                    <div class="text-emerald-600 text-xs font-semibold">Ưu tiên: Vận hành & Quản lý →</div>
+                    <div class="text-emerald-600 text-xs font-semibold">
+                        Ưu tiên: Vận hành & Quản lý →
+                    </div>
                 </div>
 
                 <!-- Group 3 -->
                 <div class="glass-card p-8 bg-white border-t-4 border-amber-500">
                     <div class="text-3xl mb-4">💡</div>
                     <h4 class="text-xl font-bold mb-3">Tư thục & Linh hoạt</h4>
-                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">Nổi bật với sự linh hoạt, kết nối doanh nghiệp mạnh mẽ và cơ sở vật chất hiện đại.</p>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Nổi bật với sự linh hoạt, kết nối doanh nghiệp mạnh mẽ và cơ sở
+                        vật chất hiện đại.
+                    </p>
                     <ul class="text-xs space-y-2 text-slate-500 mb-6">
                         <li>• ĐH Tôn Đức Thắng (TDTU)</li>
                         <li>• ĐH Công nghệ (HUTECH)</li>
                         <li>• ĐH Văn Lang, Nguyễn Tất Thành</li>
                     </ul>
-                    <div class="text-amber-600 text-xs font-semibold">Ưu tiên: Trải nghiệm & Kết nối →</div>
+                    <div class="text-amber-600 text-xs font-semibold">
+                        Ưu tiên: Trải nghiệm & Kết nối →
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,26 +211,39 @@
         <section id="data" class="mb-20 py-12 bg-white rounded-2xl shadow-sm border p-8">
             <div class="flex flex-col md:flex-row justify-between items-start mb-10">
                 <div class="max-w-xl">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Phân tích định lượng 2024</h3>
-                    <p class="text-slate-600">So sánh mức độ cạnh tranh (Điểm chuẩn) và chi phí đầu tư (Học phí) tại các cơ sở đào tạo hàng đầu.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">
+                        Phân tích định lượng 2024
+                    </h3>
+                    <p class="text-slate-600">
+                        So sánh mức độ cạnh tranh (Điểm chuẩn) và chi phí đầu tư (Học phí)
+                        tại các cơ sở đào tạo hàng đầu.
+                    </p>
                 </div>
                 <div class="flex mt-4 md:mt-0 bg-slate-100 p-1 rounded-lg">
-                    <button onclick="updateChart('benchmark')" id="btn-bench" class="px-4 py-2 text-sm font-medium rounded-md transition bg-white shadow-sm text-blue-600">Điểm chuẩn</button>
-                    <button onclick="updateChart('tuition')" id="btn-tuition" class="px-4 py-2 text-sm font-medium rounded-md transition text-slate-600 hover:text-blue-600">Học phí (Triệu VNĐ)</button>
+                    <button onclick="updateChart('benchmark')" id="btn-bench"
+                        class="px-4 py-2 text-sm font-medium rounded-md transition bg-white shadow-sm text-blue-600">
+                        Điểm chuẩn
+                    </button>
+                    <button onclick="updateChart('tuition')" id="btn-tuition"
+                        class="px-4 py-2 text-sm font-medium rounded-md transition text-slate-600 hover:text-blue-600">
+                        Học phí (Triệu VNĐ)
+                    </button>
                 </div>
             </div>
 
             <div class="chart-container">
                 <canvas id="mainChart"></canvas>
             </div>
-            
+
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
                     <h5 class="font-bold text-blue-800 mb-2 flex items-center">
                         <span class="mr-2">📈</span> Nhận xét Điểm chuẩn
                     </h5>
                     <p class="text-sm text-blue-700 leading-relaxed">
-                        Sự phân cực rõ rệt: Nhóm công lập tự chủ (HCMUT, HCMUTE) duy trì mức điểm cao và tăng ổn định. Trong khi đó, các trường tư thục duy trì mức sàn dễ tiếp cận hơn để mở rộng cơ hội học tập.
+                        Sự phân cực rõ rệt: Nhóm công lập tự chủ (HCMUT, HCMUTE) duy trì
+                        mức điểm cao và tăng ổn định. Trong khi đó, các trường tư thục duy
+                        trì mức sàn dễ tiếp cận hơn để mở rộng cơ hội học tập.
                     </p>
                 </div>
                 <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
@@ -203,7 +251,9 @@
                         <span class="mr-2">💰</span> Nhận xét Học phí
                     </h5>
                     <p class="text-sm text-amber-700 leading-relaxed">
-                        Học phí có sự chênh lệch lớn giữa hệ Đại trà và Chất lượng cao (CLC). Chương trình dạy bằng tiếng Anh có mức phí cao gấp 2-3 lần nhưng đi kèm cam kết chuẩn đầu ra quốc tế.
+                        Học phí có sự chênh lệch lớn giữa hệ Đại trà và Chất lượng cao
+                        (CLC). Chương trình dạy bằng tiếng Anh có mức phí cao gấp 2-3 lần
+                        nhưng đi kèm cam kết chuẩn đầu ra quốc tế.
                     </p>
                 </div>
             </div>
@@ -212,36 +262,51 @@
         <!-- Trends & Insights Section -->
         <section id="trends" class="mb-20">
             <div class="text-center mb-12">
-                <h3 class="text-2xl font-bold text-slate-800 mb-4">Các yếu tố tạo nên giá trị gia tăng</h3>
-                <p class="text-slate-600 max-w-2xl mx-auto">Không chỉ là lý thuyết, giáo dục cơ khí tại TP.HCM đang chuyển dịch mạnh mẽ theo các tiêu chuẩn toàn cầu.</p>
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">
+                    Các yếu tố tạo nên giá trị gia tăng
+                </h3>
+                <p class="text-slate-600 max-w-2xl mx-auto">
+                    Không chỉ là lý thuyết, giáo dục cơ khí tại TP.HCM đang chuyển dịch
+                    mạnh mẽ theo các tiêu chuẩn toàn cầu.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Accreditation -->
                 <div class="p-8 bg-slate-900 text-white rounded-2xl">
                     <h4 class="text-xl font-bold mb-6 flex items-center">
-                        <span class="text-blue-400 mr-2">✦</span> Kiểm định quốc tế & Cơ sở vật chất
+                        <span class="text-blue-400 mr-2">✦</span> Kiểm định quốc tế & Cơ
+                        sở vật chất
                     </h4>
                     <div class="space-y-6">
                         <div class="flex items-start">
                             <div class="bg-slate-800 p-3 rounded-lg mr-4">🇩🇪</div>
                             <div>
                                 <p class="font-semibold">Chuẩn ASIIN & AUN-QA</p>
-                                <p class="text-sm text-slate-400">HCMUT dẫn đầu với các chứng nhận chất lượng Châu Âu và Đông Nam Á.</p>
+                                <p class="text-sm text-slate-400">
+                                    HCMUT dẫn đầu với các chứng nhận chất lượng Châu Âu và Đông
+                                    Nam Á.
+                                </p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <div class="bg-slate-800 p-3 rounded-lg mr-4">🇺🇸</div>
                             <div>
                                 <p class="font-semibold">Chuẩn ABET (Hoa Kỳ)</p>
-                                <p class="text-sm text-slate-400">IUH khẳng định thương hiệu với 6 chương trình đạt chuẩn ABET danh giá.</p>
+                                <p class="text-sm text-slate-400">
+                                    IUH khẳng định thương hiệu với 6 chương trình đạt chuẩn ABET
+                                    danh giá.
+                                </p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <div class="bg-slate-800 p-3 rounded-lg mr-4">💻</div>
                             <div>
                                 <p class="font-semibold">Hệ sinh thái Công nghệ</p>
-                                <p class="text-sm text-slate-400">Phần mềm Moldex3D, máy in 3D, CNC hiện đại được tích hợp sâu vào chương trình.</p>
+                                <p class="text-sm text-slate-400">
+                                    Phần mềm Moldex3D, máy in 3D, CNC hiện đại được tích hợp sâu
+                                    vào chương trình.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -250,7 +315,8 @@
                 <!-- Global Trends -->
                 <div class="p-8 bg-white border rounded-2xl">
                     <h4 class="text-xl font-bold mb-6 text-slate-800 flex items-center">
-                        <span class="text-emerald-500 mr-2">🌍</span> Hướng nghiệp & Toàn cầu hóa
+                        <span class="text-emerald-500 mr-2">🌍</span> Hướng nghiệp & Toàn
+                        cầu hóa
                     </h4>
                     <div class="space-y-4">
                         <div class="p-4 bg-emerald-50 rounded-xl">
@@ -258,14 +324,20 @@
                                 <span class="font-bold text-emerald-800">Thị trường Nhật Bản</span>
                                 <span class="text-xs bg-emerald-200 text-emerald-800 px-2 py-1 rounded">HOT</span>
                             </div>
-                            <p class="text-xs text-emerald-700">Chương trình liên kết đào tạo tiếng Nhật N3 song song chuyên môn tại HCMUT, HCMUTE, IUH.</p>
+                            <p class="text-xs text-emerald-700">
+                                Chương trình liên kết đào tạo tiếng Nhật N3 song song chuyên
+                                môn tại HCMUT, HCMUTE, IUH.
+                            </p>
                         </div>
                         <div class="p-4 bg-blue-50 rounded-xl">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="font-bold text-blue-800">Kỹ sư chất lượng cao (PFIEV)</span>
                                 <span class="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded">ELITE</span>
                             </div>
-                            <p class="text-xs text-blue-700">Bằng kỹ sư được công nhận tương đương Thạc sĩ tại Châu Âu (Hợp tác Việt - Pháp).</p>
+                            <p class="text-xs text-blue-700">
+                                Bằng kỹ sư được công nhận tương đương Thạc sĩ tại Châu Âu (Hợp
+                                tác Việt - Pháp).
+                            </p>
                         </div>
                         <div class="p-4 bg-slate-50 rounded-xl">
                             <div class="flex justify-between items-center mb-2">
@@ -281,15 +353,122 @@
             </div>
         </section>
 
+        <!-- Score Predictor Section -->
+        <section id="predictor" class="mb-20">
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-blue-700 to-blue-500 px-8 pt-10 pb-16 text-white text-center">
+                    <span
+                        class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Công
+                        cụ tư vấn</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-2">
+                        Dự đoán khả năng trúng tuyển
+                    </h3>
+                    <p class="text-blue-100 text-sm max-w-lg mx-auto">
+                        Nhập điểm của bạn để xem ngay khả năng đậu vào các trường Cơ khí
+                        TP.HCM theo từng phương thức xét tuyển.
+                    </p>
+                </div>
+
+                <!-- Form card (floats over header) -->
+                <div class="bg-slate-50 px-6 pb-8">
+                    <div class="max-w-2xl mx-auto -mt-8 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
+                        <!-- Score type tabs -->
+                        <div class="flex gap-1 mb-5 bg-slate-100 p-1 rounded-xl text-center">
+                            <button id="tab-thpt" onclick="setScoreType('thpt')"
+                                class="score-tab flex-1 py-2.5 text-sm font-semibold rounded-lg bg-white shadow text-blue-600 transition">
+                                📋 Điểm THPT
+                            </button>
+                            <button id="tab-dgnl" onclick="setScoreType('dgnl')"
+                                class="score-tab flex-1 py-2.5 text-sm font-semibold rounded-lg text-slate-500 transition hover:text-blue-600">
+                                🧠 Điểm ĐGNL
+                            </button>
+                            <button id="tab-hocba" onclick="setScoreType('hocba')"
+                                class="score-tab flex-1 py-2.5 text-sm font-semibold rounded-lg text-slate-500 transition hover:text-blue-600">
+                                📚 Điểm học bạ
+                            </button>
+                        </div>
+
+                        <p id="scoreHint" class="text-xs text-slate-400 mb-3 pl-1">
+                            Tổng điểm 3 môn thi THPT Quốc gia, thang điểm 0 – 30.
+                        </p>
+
+                        <div class="flex gap-3">
+                            <div class="relative flex-1">
+                                <input type="number" id="scoreInput" placeholder="Nhập điểm của bạn..."
+                                    class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-blue-500 outline-none text-lg font-bold text-slate-700 transition"
+                                    min="0" max="30" step="0.01" />
+                                <span id="scoreUnit"
+                                    class="absolute right-4 top-3.5 text-slate-400 text-sm font-medium pointer-events-none">/
+                                    30</span>
+                            </div>
+                            <button onclick="predictSchools()"
+                                class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white px-7 py-3 rounded-xl font-bold text-sm transition-all shadow-md shadow-blue-200">
+                                Tra cứu →
+                            </button>
+                        </div>
+                        <p id="scoreError" class="text-xs text-rose-500 mt-2 hidden pl-1">
+                            Vui lòng nhập điểm hợp lệ trong khoảng cho phép.
+                        </p>
+                    </div>
+
+                    <!-- Results -->
+                    <div id="predictionResults" class="max-w-4xl mx-auto mt-8 hidden">
+                        <p id="resultSummary" class="text-center text-slate-500 text-sm mb-6"></p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <!-- Khả năng cao -->
+                            <div class="rounded-xl overflow-hidden border border-emerald-200 shadow-sm">
+                                <div
+                                    class="bg-emerald-500 text-white px-4 py-3 font-bold text-sm flex items-center gap-2">
+                                    <span>✅</span> Khả năng cao
+                                    <span id="count-high"
+                                        class="ml-auto bg-white/25 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                                </div>
+                                <div id="list-high" class="bg-white p-3 space-y-2 min-h-16"></div>
+                            </div>
+                            <!-- Biên giới -->
+                            <div class="rounded-xl overflow-hidden border border-amber-200 shadow-sm">
+                                <div
+                                    class="bg-amber-400 text-white px-4 py-3 font-bold text-sm flex items-center gap-2">
+                                    <span>⚠️</span> Biên giới
+                                    <span id="count-medium"
+                                        class="ml-auto bg-white/25 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                                </div>
+                                <div id="list-medium" class="bg-white p-3 space-y-2 min-h-16"></div>
+                            </div>
+                            <!-- Khó đạt -->
+                            <div class="rounded-xl overflow-hidden border border-rose-200 shadow-sm">
+                                <div class="bg-rose-500 text-white px-4 py-3 font-bold text-sm flex items-center gap-2">
+                                    <span>❌</span> Khó đạt
+                                    <span id="count-low"
+                                        class="ml-auto bg-white/25 text-white text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
+                                </div>
+                                <div id="list-low" class="bg-white p-3 space-y-2 min-h-16"></div>
+                            </div>
+                        </div>
+                        <p class="text-center text-xs text-slate-400 mt-4">
+                            * Dữ liệu tham khảo dựa trên điểm chuẩn 2024–2025. Kết quả mang
+                            tính định hướng, không phải xác nhận chính thức.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- School Finder Table -->
         <section id="finder" class="mb-20">
             <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
                 <div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Danh sách tra cứu nhanh</h3>
-                    <p class="text-slate-600 text-sm">Tìm kiếm và so sánh chi tiết các thông số tuyển sinh.</p>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">
+                        Danh sách tra cứu nhanh
+                    </h3>
+                    <p class="text-slate-600 text-sm">
+                        Tìm kiếm và so sánh chi tiết các thông số tuyển sinh.
+                    </p>
                 </div>
                 <div class="relative w-full md:w-64">
-                    <input type="text" id="searchInput" placeholder="Tìm tên trường..." class="w-full pl-10 pr-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none transition">
+                    <input type="text" id="searchInput" placeholder="Tìm tên trường..."
+                        class="w-full pl-10 pr-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none transition" />
                     <span class="absolute left-3 top-2.5">🔍</span>
                 </div>
             </div>
@@ -319,7 +498,9 @@
                 <div>
                     <h5 class="font-bold mb-4">Về dự án</h5>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Ứng dụng cung cấp cái nhìn tổng quan và dữ liệu chi tiết về hệ thống đào tạo kỹ sư cơ khí tại TP.HCM dựa trên các báo cáo giáo dục mới nhất.
+                        Ứng dụng cung cấp cái nhìn tổng quan và dữ liệu chi tiết về hệ
+                        thống đào tạo kỹ sư cơ khí tại TP.HCM dựa trên các báo cáo giáo
+                        dục mới nhất.
                     </p>
                 </div>
                 <div>
@@ -348,94 +529,306 @@
 
     <script>
         const schoolData = [
-            { name: "ĐH Bách Khoa (HCMUT)", majors: "Cơ khí, Cơ điện tử (Tiêu chuẩn)", score: 75.43, tuition: 31, highlight: "Chuẩn ASIIN, Đào tạo nghiên cứu mũi nhọn", system: "100" },
-            { name: "ĐH Bách Khoa (HCMUT)", majors: "Cơ khí (Hệ Tiếng Anh)", score: 75.43, tuition: 82, highlight: "Dạy hoàn toàn bằng Tiếng Anh, Chuyển tiếp Úc", system: "100" },
-            { name: "ĐH Sư phạm Kỹ thuật (HCMUTE)", majors: "Công nghệ KT Cơ khí", score: 26.45, tuition: 32.6, highlight: "Cơ sở vật chất xưởng thực hành lớn nhất", system: "30" },
-            { name: "ĐH Sư phạm Kỹ thuật (HCMUTE)", majors: "Robot & Trí tuệ nhân tạo", score: 27.70, tuition: 33, highlight: "Đón đầu xu hướng AI và Robot", system: "30" },
-            { name: "ĐH Công nghiệp (IUH)", majors: "Công nghệ KT Cơ khí", score: 25.50, tuition: 33.5, highlight: "6 chương trình đạt chuẩn ABET (Mỹ)", system: "30" },
-            { name: "ĐH Tôn Đức Thắng (TDTU)", majors: "Kỹ thuật Cơ điện tử", score: 33.50, tuition: 37, highlight: "Chuẩn AUN-QA, Cam kết việc làm", system: "40" },
-            { name: "ĐH Giao thông Vận tải (UTH)", majors: "Cơ khí tự động", score: 24.00, tuition: 38, highlight: "Chuyên sâu cơ khí hàng hải, tàu thủy", system: "30" },
-            { name: "ĐH Nông Lâm (NLU)", majors: "Cơ khí Nông - Lâm", score: 22.00, tuition: 18.7, highlight: "Học phí thấp, ứng dụng công nghệ nông nghiệp", system: "30" },
-            { name: "ĐH Công nghệ (HUTECH)", majors: "Kỹ thuật Cơ khí", score: 15.00, tuition: 52, highlight: "Kết nối doanh nghiệp mạnh mẽ", system: "30" }
+            {
+                name: "ĐH Bách Khoa (HCMUT)",
+                majors: "Cơ khí, Cơ điện tử (Tiêu chuẩn)",
+                score: 75.43,
+                tuition: 31,
+                highlight: "Chuẩn ASIIN, Đào tạo nghiên cứu mũi nhọn",
+                system: "100",
+                benchmarks: { thpt: 26.5, dgnl: 900, hocba: 8.7 },
+            },
+            {
+                name: "ĐH Bách Khoa (HCMUT)",
+                majors: "Cơ khí (Hệ Tiếng Anh)",
+                score: 75.43,
+                tuition: 82,
+                highlight: "Dạy hoàn toàn bằng Tiếng Anh, Chuyển tiếp Úc",
+                system: "100",
+                benchmarks: { thpt: 27.2, dgnl: 950, hocba: 9.0 },
+            },
+            {
+                name: "ĐH Sư phạm Kỹ thuật (HCMUTE)",
+                majors: "Công nghệ KT Cơ khí",
+                score: 26.45,
+                tuition: 32.6,
+                highlight: "Cơ sở vật chất xưởng thực hành lớn nhất",
+                system: "30",
+                benchmarks: { thpt: 26.0, dgnl: 770, hocba: 8.4 },
+            },
+            {
+                name: "ĐH Sư phạm Kỹ thuật (HCMUTE)",
+                majors: "Robot & Trí tuệ nhân tạo",
+                score: 27.7,
+                tuition: 33,
+                highlight: "Đón đầu xu hướng AI và Robot",
+                system: "30",
+                benchmarks: { thpt: 27.0, dgnl: 800, hocba: 8.6 },
+            },
+            {
+                name: "ĐH Công nghiệp (IUH)",
+                majors: "Công nghệ KT Cơ khí",
+                score: 25.5,
+                tuition: 33.5,
+                highlight: "6 chương trình đạt chuẩn ABET (Mỹ)",
+                system: "30",
+                benchmarks: { thpt: 24.5, dgnl: 700, hocba: 7.9 },
+            },
+            {
+                name: "ĐH Tôn Đức Thắng (TDTU)",
+                majors: "Kỹ thuật Cơ điện tử",
+                score: 33.5,
+                tuition: 37,
+                highlight: "Chuẩn AUN-QA, Cam kết việc làm",
+                system: "40",
+                benchmarks: { thpt: 22.5, dgnl: 660, hocba: 7.6 },
+            },
+            {
+                name: "ĐH Giao thông Vận tải (UTH)",
+                majors: "Cơ khí tự động",
+                score: 24.0,
+                tuition: 38,
+                highlight: "Chuyên sâu cơ khí hàng hải, tàu thủy",
+                system: "30",
+                benchmarks: { thpt: 22.0, dgnl: 620, hocba: 7.3 },
+            },
+            {
+                name: "ĐH Nông Lâm (NLU)",
+                majors: "Cơ khí Nông - Lâm",
+                score: 22.0,
+                tuition: 18.7,
+                highlight: "Học phí thấp, ứng dụng công nghệ nông nghiệp",
+                system: "30",
+                benchmarks: { thpt: 20.5, dgnl: 560, hocba: 7.0 },
+            },
+            {
+                name: "ĐH Công nghệ (HUTECH)",
+                majors: "Kỹ thuật Cơ khí",
+                score: 15.0,
+                tuition: 52,
+                highlight: "Kết nối doanh nghiệp mạnh mẽ",
+                system: "30",
+                benchmarks: { thpt: 15.0, dgnl: 450, hocba: 6.2 },
+            },
         ];
+
+        // ── Score Predictor ──────────────────────────────────────────
+        const scoreConfig = {
+            thpt: {
+                max: 30,
+                unit: "/ 30",
+                hint: "Tổng điểm 3 môn thi THPT Quốc gia, thang điểm 0 – 30.",
+            },
+            dgnl: {
+                max: 1200,
+                unit: "/ 1200",
+                hint: "Điểm Đánh giá Năng lực ĐHQG TP.HCM, thang điểm 0 – 1200.",
+            },
+            hocba: {
+                max: 10,
+                unit: "/ 10",
+                hint: "Điểm trung bình học bạ THPT (trung bình 3 môn xét tuyển), thang điểm 0 – 10.",
+            },
+        };
+
+        let currentScoreType = "thpt";
+
+        function setScoreType(type) {
+            currentScoreType = type;
+            const cfg = scoreConfig[type];
+
+            // Update tabs
+            document.querySelectorAll(".score-tab").forEach((btn) => {
+                btn.classList.remove("bg-white", "shadow", "text-blue-600");
+                btn.classList.add("text-slate-500");
+            });
+            const activeTab = document.getElementById("tab-" + type);
+            activeTab.classList.add("bg-white", "shadow", "text-blue-600");
+            activeTab.classList.remove("text-slate-500");
+
+            // Update hint & unit & input range
+            document.getElementById("scoreHint").textContent = cfg.hint;
+            document.getElementById("scoreUnit").textContent = cfg.unit;
+            const input = document.getElementById("scoreInput");
+            input.max = cfg.max;
+            input.placeholder = "Nhập điểm của bạn...";
+            input.value = "";
+
+            // Hide previous results
+            document.getElementById("predictionResults").classList.add("hidden");
+            document.getElementById("scoreError").classList.add("hidden");
+        }
+
+        function predictSchools() {
+            const input = document.getElementById("scoreInput");
+            const errorEl = document.getElementById("scoreError");
+            const userScore = parseFloat(input.value);
+            const cfg = scoreConfig[currentScoreType];
+
+            // Validate
+            if (isNaN(userScore) || userScore < 0 || userScore > cfg.max) {
+                errorEl.textContent = `Vui lòng nhập điểm hợp lệ từ 0 đến ${cfg.max}.`;
+                errorEl.classList.remove("hidden");
+                return;
+            }
+            errorEl.classList.add("hidden");
+
+            const userPct = (userScore / cfg.max) * 100;
+
+            // Classify each school
+            const groups = { high: [], medium: [], low: [] };
+
+            schoolData.forEach((school) => {
+                const benchmark = school.benchmarks[currentScoreType];
+                const benchmarkPct = (benchmark / cfg.max) * 100;
+                const diff = userPct - benchmarkPct; // positive = user is above
+                const diffScore = (diff / 100) * cfg.max; // convert back to score unit
+
+                let group;
+                if (diff >= 0) group = "high";
+                else if (diff >= -6) group = "medium";
+                else group = "low";
+
+                groups[group].push({ school, benchmark, diffScore, group });
+            });
+
+            // Render
+            ["high", "medium", "low"].forEach((g) => {
+                const list = document.getElementById("list-" + g);
+                const count = document.getElementById("count-" + g);
+                count.textContent = groups[g].length;
+                list.innerHTML =
+                    groups[g].length === 0
+                        ? '<p class="text-xs text-slate-400 text-center py-2">—</p>'
+                        : groups[g]
+                            .map(
+                                ({ school, benchmark, diffScore }) => `
+                        <div class="rounded-lg border border-slate-100 bg-slate-50 px-3 py-2">
+                            <p class="font-semibold text-slate-800 text-xs leading-tight">${school.name}</p>
+                            <p class="text-slate-500 text-xs mt-0.5">${school.majors}</p>
+                            <div class="flex justify-between items-center mt-1.5">
+                                <span class="text-slate-400 text-xs">Ngưỡng: <strong class="text-slate-600">${benchmark}</strong></span>
+                                <span class="text-xs font-bold ${diffScore >= 0 ? "text-emerald-600" : "text-rose-500"}">
+                                    ${diffScore >= 0 ? "+" : ""}${diffScore.toFixed(2)}
+                                </span>
+                            </div>
+                        </div>`,
+                            )
+                            .join("");
+            });
+
+            const typeLabel = { thpt: "THPT", dgnl: "ĐGNL", hocba: "học bạ" };
+            document.getElementById("resultSummary").innerHTML =
+                `Kết quả dự đoán cho điểm <strong>${typeLabel[currentScoreType]}: ${userScore}</strong> — ` +
+                `<span class="text-emerald-600 font-semibold">${groups.high.length} trường</span> khả năng cao, ` +
+                `<span class="text-amber-500 font-semibold">${groups.medium.length} trường</span> biên giới, ` +
+                `<span class="text-rose-500 font-semibold">${groups.low.length} trường</span> khó đạt.`;
+
+            document.getElementById("predictionResults").classList.remove("hidden");
+            document
+                .getElementById("predictionResults")
+                .scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        // Allow Enter key to trigger search
+        document.addEventListener("DOMContentLoaded", () => {
+            document
+                .getElementById("scoreInput")
+                .addEventListener("keydown", (e) => {
+                    if (e.key === "Enter") predictSchools();
+                });
+        });
 
         // Chart Implementation
         let mainChart;
-        const ctx = document.getElementById('mainChart').getContext('2d');
+        const ctx = document.getElementById("mainChart").getContext("2d");
 
-        const chartLabels = ["HCMUT (BC)", "HCMUTE", "IUH", "TDTU", "UTH", "NLU", "HUTECH"];
-        const benchmarkData = [75.43, 26.45, 25.50, 33.50, 24.00, 22.00, 15.00]; // Mixed scales simplified for view
+        const chartLabels = [
+            "HCMUT (BC)",
+            "HCMUTE",
+            "IUH",
+            "TDTU",
+            "UTH",
+            "NLU",
+            "HUTECH",
+        ];
+        const benchmarkData = [75.43, 26.45, 25.5, 33.5, 24.0, 22.0, 15.0]; // Mixed scales simplified for view
         const tuitionData = [31, 32.6, 33.5, 37, 38, 18.7, 52];
 
         function initChart() {
             mainChart = new Chart(ctx, {
-                type: 'bar',
+                type: "bar",
                 data: {
                     labels: chartLabels,
-                    datasets: [{
-                        label: 'Điểm chuẩn THPT 2025 (Tham khảo)',
-                        data: benchmarkData,
-                        backgroundColor: 'rgba(9, 132, 227, 0.7)',
-                        borderColor: '#0984e3',
-                        borderWidth: 1,
-                        borderRadius: 5
-                    }]
+                    datasets: [
+                        {
+                            label: "Điểm chuẩn THPT 2025 (Tham khảo)",
+                            data: benchmarkData,
+                            backgroundColor: "rgba(9, 132, 227, 0.7)",
+                            borderColor: "#0984e3",
+                            borderWidth: 1,
+                            borderRadius: 5,
+                        },
+                    ],
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { position: 'top' },
+                        legend: { position: "top" },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label.includes('Học phí')) return label + ': ' + context.raw + ' triệu VNĐ/năm';
-                                    return label + ': ' + context.raw;
-                                }
-                            }
-                        }
+                                label: function (context) {
+                                    let label = context.dataset.label || "";
+                                    if (label.includes("Học phí"))
+                                        return label + ": " + context.raw + " triệu VNĐ/năm";
+                                    return label + ": " + context.raw;
+                                },
+                            },
+                        },
                     },
                     scales: {
-                        y: { 
+                        y: {
                             beginAtZero: true,
-                            grid: { color: '#f1f1f1' }
+                            grid: { color: "#f1f1f1" },
                         },
-                        x: { grid: { display: false } }
-                    }
-                }
+                        x: { grid: { display: false } },
+                    },
+                },
             });
         }
 
         function updateChart(type) {
-            const btnBench = document.getElementById('btn-bench');
-            const btnTuition = document.getElementById('btn-tuition');
+            const btnBench = document.getElementById("btn-bench");
+            const btnTuition = document.getElementById("btn-tuition");
 
-            if (type === 'benchmark') {
-                mainChart.data.datasets[0].label = 'Điểm chuẩn THPT 2025 (Tham khảo)';
+            if (type === "benchmark") {
+                mainChart.data.datasets[0].label = "Điểm chuẩn THPT 2025 (Tham khảo)";
                 mainChart.data.datasets[0].data = benchmarkData;
-                mainChart.data.datasets[0].backgroundColor = 'rgba(9, 132, 227, 0.7)';
-                mainChart.data.datasets[0].borderColor = '#0984e3';
-                
-                btnBench.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
-                btnTuition.classList.remove('bg-white', 'shadow-sm', 'text-blue-600');
-            } else {
-                mainChart.data.datasets[0].label = 'Học phí tham chiếu (Triệu VNĐ/Năm)';
-                mainChart.data.datasets[0].data = tuitionData;
-                mainChart.data.datasets[0].backgroundColor = 'rgba(255, 159, 64, 0.7)';
-                mainChart.data.datasets[0].borderColor = '#e67e22';
+                mainChart.data.datasets[0].backgroundColor = "rgba(9, 132, 227, 0.7)";
+                mainChart.data.datasets[0].borderColor = "#0984e3";
 
-                btnTuition.classList.add('bg-white', 'shadow-sm', 'text-blue-600');
-                btnBench.classList.remove('bg-white', 'shadow-sm', 'text-blue-600');
+                btnBench.classList.add("bg-white", "shadow-sm", "text-blue-600");
+                btnTuition.classList.remove("bg-white", "shadow-sm", "text-blue-600");
+            } else {
+                mainChart.data.datasets[0].label =
+                    "Học phí tham chiếu (Triệu VNĐ/Năm)";
+                mainChart.data.datasets[0].data = tuitionData;
+                mainChart.data.datasets[0].backgroundColor =
+                    "rgba(255, 159, 64, 0.7)";
+                mainChart.data.datasets[0].borderColor = "#e67e22";
+
+                btnTuition.classList.add("bg-white", "shadow-sm", "text-blue-600");
+                btnBench.classList.remove("bg-white", "shadow-sm", "text-blue-600");
             }
             mainChart.update();
         }
 
         // Table Implementation
         function populateTable(data) {
-            const tbody = document.getElementById('schoolTableBody');
-            tbody.innerHTML = '';
-            data.forEach(item => {
+            const tbody = document.getElementById("schoolTableBody");
+            tbody.innerHTML = "";
+            data.forEach((item) => {
                 const row = `
                     <tr class="hover:bg-slate-50 transition">
                         <td class="px-6 py-4 font-semibold text-slate-800" data-label="Tên trường">${item.name}</td>
@@ -454,14 +847,17 @@
         }
 
         // Search Logic
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const term = e.target.value.toLowerCase();
-            const filtered = schoolData.filter(s => 
-                s.name.toLowerCase().includes(term) || 
-                s.majors.toLowerCase().includes(term)
-            );
-            populateTable(filtered);
-        });
+        document
+            .getElementById("searchInput")
+            .addEventListener("input", function (e) {
+                const term = e.target.value.toLowerCase();
+                const filtered = schoolData.filter(
+                    (s) =>
+                        s.name.toLowerCase().includes(term) ||
+                        s.majors.toLowerCase().includes(term),
+                );
+                populateTable(filtered);
+            });
 
         // Initialize
         window.onload = () => {
@@ -470,4 +866,5 @@
         };
     </script>
 </body>
+
 </html>
